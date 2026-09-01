@@ -602,3 +602,26 @@ textarea {
         font-size: 36px;
     }
 }
+/* Prevent accidental text selection while using the app */
+button,
+.btn,
+.cart-btn,
+.add,
+.close,
+.cat,
+.tab,
+.choice,
+.option,
+.eyebrow,
+.badge {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Keep normal text/input selection available */
+input,
+textarea {
+    user-select: text;
+    -webkit-user-select: text;
+}
