@@ -1425,6 +1425,16 @@ renderCart();
    CUSTOMER AUTH + MY ORDERS
 ========================================================= */
 
+function pfSaveCustomerPhone(phone) {
+    phone = String(phone || "").replace(/\D/g, "");
+
+    if (phone) {
+        localStorage.setItem(
+            "pf_customer_phone",
+            phone
+        );
+    }
+}
 const PF_CUSTOMER_TOKEN_KEY="pf_customer_token";
 const PF_CUSTOMER_KEY="pf_customer_account";
 const pfCustomerToken=()=>localStorage.getItem(PF_CUSTOMER_TOKEN_KEY)||"";
