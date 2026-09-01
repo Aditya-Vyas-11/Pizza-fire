@@ -3,10 +3,602 @@
 .my-orders{scroll-margin-top:90px}.my-orders-login{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px;background:#fff;border:1px solid var(--border);border-radius:18px;margin-bottom:18px}.my-orders-login strong{display:block;font-size:15px}.my-orders-login span{display:block;color:#888;font-size:12px;margin-top:4px}.my-orders-phone{display:flex;gap:8px;width:min(430px,100%)}.my-orders-phone input{margin:0}.my-orders-list{display:grid;gap:14px}.my-orders-empty{text-align:center;padding:48px 20px;background:#fff;border:1px dashed var(--border);border-radius:18px}.my-orders-empty>div{font-size:34px;margin-bottom:8px}.my-orders-empty h3{margin:0 0 5px;font-size:17px}.my-orders-empty p{margin:0;color:#999;font-size:12px}.my-order-card,.tracking-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:20px;box-shadow:0 8px 30px rgba(30,20,10,.04)}.my-order-top,.my-order-bottom,.tracking-head,.tracking-total{display:flex;align-items:center;justify-content:space-between;gap:15px}.my-order-top h3,.tracking-head h3{margin:3px 0;font-size:17px}.my-order-date{color:#999;font-size:10px}.my-order-status{padding:7px 11px;border-radius:999px;background:#fff5e5;color:#a56600;font-size:10px;font-weight:900;text-transform:uppercase}.my-order-status.done{background:#edf9f1;color:#199b50}.my-order-status.rejected{background:#fff0f0;color:var(--red)}.my-order-items{margin:16px 0;padding:12px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}.my-order-item{display:flex;justify-content:space-between;padding:5px 0;font-size:12px}.my-order-bottom>div{display:grid;gap:3px}.my-order-bottom>div span{color:#888;font-size:11px}.my-order-bottom>div strong{font-size:17px}.delivered-label{color:#199b50;font-size:11px;font-weight:900}.tracking-card{border-top:3px solid var(--red)}.tracking-status{display:flex;align-items:center;gap:12px;margin:25px 0;padding:17px;border-radius:14px;background:#faf7f5}.tracking-dot{width:12px;height:12px;border-radius:50%;background:var(--red);box-shadow:0 0 0 6px rgba(226,27,35,.08)}.tracking-status strong{font-size:14px}.tracking-status p{margin:3px 0 0;color:#888;font-size:11px}.tracking-total{padding-top:16px;border-top:1px solid var(--border)}.tracking-total span{color:#888;font-size:12px}.tracking-total strong{font-size:20px}@media(max-width:650px){.my-orders-login,.my-order-bottom,.tracking-head{align-items:stretch;flex-direction:column}.my-orders-phone{width:100%}}
 
 
-/* My Orders / tracking */
-.my-orders-list{display:grid;gap:16px;margin-top:24px}.my-order-card{background:#fff;border:1px solid #ebe5e1;border-radius:20px;padding:20px;box-shadow:0 10px 30px rgba(40,20,10,.05)}.my-order-top,.my-order-bottom{display:flex;justify-content:space-between;align-items:center;gap:16px}.my-order-top h3{margin:3px 0 0}.my-order-items{margin:18px 0;color:#625c57}.my-order-status{padding:7px 11px;border-radius:999px;font-size:12px;font-weight:700;background:#f1edea}.my-order-status.accepted,.my-order-status.preparing,.my-order-status.ready,.my-order-status.out_for_delivery{background:#fff1df}.my-order-status.delivered{background:#e8f7ec;color:#18733a}.my-order-status.rejected{background:#fdebec;color:#a52b32}.my-order-total-label{display:block;font-size:10px;letter-spacing:.12em;color:#8b837e}.my-order-bottom strong{font-size:20px}.my-order-delivered{font-weight:800;color:#188044}.my-order-rejected{font-weight:700;color:#a52b32}.my-order-track{white-space:nowrap}.my-orders-empty{text-align:center;padding:50px 20px;background:#fff;border:1px solid #ebe5e1;border-radius:22px}.my-orders-empty>div{font-size:38px}.pf-order-modal{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:20px}.pf-order-overlay{position:absolute;inset:0;background:rgba(20,12,8,.55)}.pf-order-dialog{position:relative;width:min(520px,100%);background:#fff;border-radius:24px;padding:28px;box-shadow:0 25px 80px rgba(0,0,0,.2)}.pf-order-close{position:absolute;right:16px;top:12px;border:0;background:none;font-size:30px;cursor:pointer}.pf-order-steps{display:grid;gap:12px;margin:24px 0}.pf-order-step{display:flex;align-items:center;gap:12px;color:#9a928c}.pf-order-step b{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#eee}.pf-order-step.done{color:#222}.pf-order-step.done b{background:#f36b21;color:#fff}.pf-order-step.current span{font-weight:800}.pf-order-info{border-top:1px solid #eee;padding-top:16px;display:flex;justify-content:space-between;gap:15px}
-@media(max-width:650px){.my-order-top,.my-order-bottom{align-items:flex-start;flex-direction:column}.my-order-bottom{flex-direction:row;align-items:center}.my-order-track{width:100%}}
+/* =========================================================
+   PIZZA FIRE — RESPONSIVE MOBILE PATCH
+   Keeps desktop layout intact and improves phones/tablets.
+========================================================= */
 
-/* CUSTOMER AUTH */
-.account-btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 16px;font-weight:900;white-space:nowrap}.account-btn:hover{border-color:var(--red);color:var(--red)}
-.pf-auth-bg{position:fixed;inset:0;background:rgba(20,15,12,.55);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:20px;z-index:100}.pf-auth-bg.open{display:flex}.pf-auth-card{position:relative;width:min(440px,100%);background:#fff;border-radius:26px;padding:34px;box-shadow:0 30px 90px rgba(0,0,0,.22)}.pf-auth-brand{font-size:38px;margin-bottom:10px}.pf-auth-card h2{margin:6px 0;font-size:32px}.pf-auth-card>p{margin:0 0 22px;font-size:14px}.pf-auth-card form{display:grid;gap:14px}.pf-auth-card label{display:grid;gap:7px;font-size:12px;font-weight:900}.pf-auth-card input{width:100%;min-height:46px;border:1px solid var(--line);border-radius:12px;padding:10px 13px;outline:none}.pf-auth-card input:focus{border-color:var(--red)}.pf-auth-close{position:absolute;right:16px;top:14px;border:0;background:transparent;font-size:28px;color:#777}.pf-auth-switch{border:0;background:none;color:var(--red);font-weight:800;margin-top:16px;width:100%}.pf-auth-message{margin-top:12px;font-size:13px;text-align:center;color:#b42028;min-height:18px}.pf-auth-message.ok{color:#168146}.hidden{display:none!important}.my-orders-auth{display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--cream);border:1px solid var(--line);padding:18px 20px;border-radius:18px;margin-bottom:20px}.my-orders-auth strong,.my-orders-auth span{display:block}.my-orders-auth span{font-size:12px;color:var(--muted);margin-top:3px}@media(max-width:900px){nav{gap:13px}.account-btn{padding:9px 12px}}@media(max-width:700px){.nav{gap:10px}.nav nav{display:none}.account-btn{margin-left:auto}.pf-auth-card{padding:28px 22px}.my-orders-auth{align-items:flex-start;flex-direction:column}}
+/* Prevent accidental horizontal overflow */
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img,
+svg,
+video,
+canvas {
+    max-width: 100%;
+}
+
+/* Better touch targets */
+button,
+a,
+input,
+textarea {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* ================= TABLET ================= */
+
+@media (max-width: 900px) {
+    .container {
+        width: min(100% - 32px, 1180px);
+    }
+
+    .nav {
+        min-height: 68px;
+        height: auto;
+        padding: 12px 0;
+        gap: 12px;
+    }
+
+    /*
+      Keep navigation usable even if the menu JS is unavailable.
+      It becomes a compact horizontal scroller instead of disappearing.
+    */
+    nav {
+        display: flex !important;
+        flex: 1 1 auto;
+        min-width: 0;
+        gap: 16px;
+        margin: 0;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scrollbar-width: none;
+        white-space: nowrap;
+        padding: 2px 0;
+    }
+
+    nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    nav a {
+        flex: 0 0 auto;
+        font-size: 12px;
+        padding: 7px 0;
+    }
+
+    .menu-toggle {
+        display: none !important;
+    }
+
+    .cart-btn {
+        flex: 0 0 auto;
+        white-space: nowrap;
+        padding: 10px 13px;
+    }
+
+    .hero {
+        min-height: auto;
+    }
+
+    .hero-grid {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 65px 0 70px;
+    }
+
+    .hero-grid > div:first-child {
+        text-align: center;
+    }
+
+    .hero-grid .eyebrow {
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: clamp(42px, 9vw, 68px);
+        line-height: .98;
+    }
+
+    .hero-content > p {
+        max-width: 680px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 15px;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+
+    .trust {
+        justify-content: center;
+    }
+
+    .hero-visual {
+        height: 340px;
+        min-height: 0;
+    }
+
+    .pizza-orb {
+        width: 270px;
+        height: 270px;
+    }
+
+    .pizza-orb span {
+        font-size: 135px;
+    }
+
+    .one {
+        top: 15px;
+        right: 4%;
+    }
+
+    .two {
+        bottom: 15px;
+        left: 4%;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .product {
+        min-width: 0;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+    .offer {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .drawer {
+        width: min(440px, 100%);
+    }
+
+    .modal {
+        max-width: calc(100% - 24px);
+    }
+}
+
+/* ================= PHONE ================= */
+
+@media (max-width: 600px) {
+    .container {
+        width: calc(100% - 24px);
+    }
+
+    .nav {
+        gap: 9px;
+        padding: 10px 0;
+    }
+
+    .brand {
+        font-size: 21px;
+    }
+
+    .brand > span {
+        font-size: 20px;
+    }
+
+    nav {
+        gap: 13px;
+    }
+
+    nav a {
+        font-size: 11px;
+    }
+
+    .cart-btn {
+        font-size: 11px;
+        padding: 9px 11px;
+    }
+
+    .hero-grid {
+        padding: 48px 0 55px;
+    }
+
+    .hero h1 {
+        font-size: clamp(38px, 12vw, 54px);
+        letter-spacing: -.045em;
+    }
+
+    .hero-grid > div:first-child > p {
+        font-size: 14px;
+        line-height: 1.65;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 9px;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+    }
+
+    .trust {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+        font-size: 11px;
+    }
+
+    .hero-visual {
+        height: 270px;
+    }
+
+    .pizza-orb {
+        width: 215px;
+        height: 215px;
+    }
+
+    .pizza-orb span {
+        font-size: 105px;
+    }
+
+    .pizza-orb small {
+        bottom: 30px;
+        font-size: 8px;
+        padding: 7px 10px;
+    }
+
+    .float {
+        font-size: 9px;
+        padding: 8px 10px;
+        box-shadow: 0 10px 25px rgba(0,0,0,.08);
+    }
+
+    .one {
+        top: 3px;
+        right: 0;
+    }
+
+    .two {
+        bottom: 3px;
+        left: 0;
+    }
+
+    .section {
+        padding: 54px 0;
+    }
+
+    .section-title h2,
+    .section-head h2,
+    .about-card h2,
+    .offer h2 {
+        font-size: 30px;
+        line-height: 1.08;
+    }
+
+    .section-head {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .search {
+        width: 100%;
+        min-height: 48px;
+    }
+
+    .cat-row,
+    .tabs {
+        gap: 8px;
+        padding-bottom: 9px;
+        scroll-snap-type: x proximity;
+    }
+
+    .cat,
+    .tab {
+        scroll-snap-align: start;
+    }
+
+    .cat {
+        min-width: 105px;
+        padding: 13px 10px;
+        font-size: 12px;
+    }
+
+    .cat span {
+        font-size: 25px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+    }
+
+    .food {
+        height: 135px;
+        font-size: 58px;
+    }
+
+    .body {
+        padding: 12px;
+    }
+
+    .body h3 {
+        font-size: 14px;
+        line-height: 1.25;
+    }
+
+    .body p {
+        font-size: 11px;
+        line-height: 1.5;
+        min-height: 0;
+        margin-bottom: 11px;
+    }
+
+    .product-foot {
+        align-items: center;
+    }
+
+    .price {
+        font-size: 15px;
+    }
+
+    .add {
+        padding: 8px 9px;
+        font-size: 11px;
+        white-space: nowrap;
+    }
+
+    .badge {
+        top: 8px;
+        left: 8px;
+        padding: 5px 7px;
+        font-size: 8px;
+    }
+
+    .offer {
+        display: block;
+        padding: 28px 22px;
+        margin-bottom: 35px;
+        border-radius: 20px;
+    }
+
+    .offer .btn {
+        width: 100%;
+        margin-top: 16px;
+    }
+
+    .about-card,
+    .map-card {
+        padding: 24px 20px;
+        border-radius: 20px;
+    }
+
+    .info {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px 0;
+    }
+
+    /* Cart drawer */
+    .drawer {
+        width: 100%;
+    }
+
+    .drawer-head {
+        padding: 18px 16px;
+    }
+
+    .drawer-head h3 {
+        font-size: 25px;
+    }
+
+    .cart-items {
+        padding: 12px 16px;
+    }
+
+    .cart-row {
+        grid-template-columns: 48px minmax(0, 1fr) auto;
+        gap: 9px;
+    }
+
+    .mini {
+        height: 48px;
+        font-size: 25px;
+    }
+
+    .cart-row h4 {
+        font-size: 13px;
+    }
+
+    .cart-row small {
+        font-size: 10px;
+    }
+
+    .summary {
+        padding: 15px 16px;
+    }
+
+    /* Item customization modal */
+    .modal-bg {
+        padding: 10px;
+    }
+
+    .item-modal,
+    .checkout,
+    .success {
+        width: 100%;
+        max-width: 100%;
+        max-height: 94vh;
+        border-radius: 18px;
+    }
+
+    .item-modal,
+    .checkout {
+        padding: 20px;
+    }
+
+    .item-layout {
+        grid-template-columns: 1fr;
+        gap: 17px;
+    }
+
+    .item-photo {
+        min-height: 170px;
+        max-height: 210px;
+        font-size: 90px;
+    }
+
+    .options {
+        gap: 6px;
+    }
+
+    .option {
+        padding: 8px 10px;
+        font-size: 11px;
+    }
+
+    .form-grid,
+    .choice-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .choice-grid {
+        margin: 12px 0;
+    }
+
+    .choice {
+        padding: 12px;
+    }
+
+    input,
+    textarea {
+        font-size: 16px; /* prevents iOS zoom */
+    }
+
+    .success {
+        padding: 26px 20px;
+    }
+
+    /* My Orders */
+    .my-orders-login {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px;
+    }
+
+    .my-orders-phone {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .my-orders-phone .btn {
+        width: 100%;
+    }
+
+    .my-order-card,
+    .tracking-card {
+        padding: 16px;
+    }
+
+    .my-order-top,
+    .my-order-bottom,
+    .tracking-head {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .my-order-status {
+        align-self: flex-start;
+    }
+
+    .my-order-items {
+        margin: 12px 0;
+    }
+
+    .my-order-bottom > div strong {
+        font-size: 16px;
+    }
+
+    .tracking-status {
+        margin: 18px 0;
+        padding: 13px;
+    }
+
+    .track-card {
+        padding: 18px;
+    }
+
+    .track-form,
+    .track-meta {
+        grid-template-columns: 1fr;
+    }
+
+    .track-form .btn {
+        width: 100%;
+    }
+}
+
+/* ================= VERY SMALL PHONES ================= */
+
+@media (max-width: 380px) {
+    .container {
+        width: calc(100% - 18px);
+    }
+
+    .brand {
+        font-size: 19px;
+    }
+
+    nav {
+        gap: 10px;
+    }
+
+    nav a {
+        font-size: 10px;
+    }
+
+    .cart-btn {
+        padding: 8px 9px;
+        font-size: 10px;
+    }
+
+    .grid {
+        gap: 7px;
+    }
+
+    .food {
+        height: 120px;
+        font-size: 50px;
+    }
+
+    .body {
+        padding: 10px;
+    }
+
+    .body h3 {
+        font-size: 13px;
+    }
+
+    .add {
+        padding: 7px 8px;
+        font-size: 10px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+}
