@@ -1,4 +1,4 @@
-const API = "http://127.0.0.1:8000";
+const API = "https://pizza-fire-1.onrender.com";
 let token = localStorage.getItem("pf_delivery_token") || "";
 let staffName = localStorage.getItem("pf_delivery_name") || "Delivery";
 const $ = s => document.querySelector(s);
