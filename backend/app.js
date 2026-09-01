@@ -1422,7 +1422,7 @@ renderCart();
    TRACK MY ORDERS
 ========================================================= */
 
-const PF_TRACK_API = "http://127.0.0.1:8000";
+const PF_TRACK_API = "https://pizza-fire-1.onrender.com";
 const PF_TRACK_LABELS = {
     new: "Order received",
     accepted: "Order confirmed",
