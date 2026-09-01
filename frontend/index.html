@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Pizza Fire Karauli — fresh pure veg pizzas, burgers, combos, shakes and more.">
+<title>Pizza Fire — A Real Taste</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="toast" class="toast"></div>
+<header class="topbar"><div class="container nav">
+<a class="brand" href="#home"><span>🍕</span> Pizza <b>Fire</b></a>
+<nav><a href="#home">Home</a><a href="#menu">Menu</a><a href="#offers">Offers</a><a href="#about">About</a><a href="#my-orders">My Orders</a></nav><button class="account-btn" id="accountBtn">Login</button>
+<button class="cart-btn" id="openCart">Cart <span id="cartCount">0</span></button><button class="menu-toggle" id="menuToggle">☰</button>
+</div></header>
+
+<main>
+<section class="hero" id="home"><div class="hero-orb"></div><div class="container hero-grid">
+<div><span class="eyebrow">🍃 PURE VEG • KARAULI</span>
+<h1>A Real <span>Taste</span><br>Worth Coming Back For.</h1>
+<p>Fresh pizzas, loaded burgers, creamy shakes and unbeatable combos — ordered directly from Pizza Fire.</p>
+<div class="hero-actions"><a class="btn primary" href="#menu">Order Now ↗</a><a class="btn ghost" href="#offers">See Offers</a></div>
+<div class="trust"><span>🟢 Pure Veg</span><span>🛵 Free Home Delivery</span><span>⏰ 10 AM – 10 PM</span></div></div>
+<div class="hero-visual"><div class="pizza-orb"><span>🍕</span><small>FRESH • HOT • LOADED</small></div><div class="float one">🔥 Bestseller</div><div class="float two">🛵 Free Delivery</div></div>
+</div></section>
+
+<section class="container section categories"><div class="section-title"><span class="eyebrow">EXPLORE</span><h2>What are you craving?</h2></div><div class="cat-row" id="categoryRow"></div></section>
+
+<section class="container section" id="menu">
+<div class="section-head"><div><span class="eyebrow">OUR MENU</span><h2>Made fresh. Ordered easy.</h2></div>
+<label class="search">⌕<input id="search" placeholder="Search pizza, burger, shake..."></label></div>
+<div class="tabs" id="categoryTabs"></div><div class="grid" id="productGrid"></div>
+</section>
+
+<section class="container section my-orders" id="my-orders">
+<div class="section-head"><div><span class="eyebrow">YOUR ORDERS</span><h2>My Orders</h2><p class="muted">Your active and past Pizza Fire orders.</p></div><button class="btn ghost" id="refreshMyOrders" type="button">↻ Refresh</button></div>
+<div id="myOrdersList" class="my-orders-list"><div class="my-orders-empty"><div>🍕</div><h3>Your orders will appear here</h3><p>Place an order and it will automatically show up here.</p><a class="btn primary" href="#menu">Order Now</a></div></div>
+</section>
+
+<section class="container offer" id="offers"><div><span class="eyebrow">SPECIAL OFFERS</span><h2>Pizza time starts here.</h2><p>Check the latest Pizza Fire offers before you order.</p></div><a class="btn light" href="#menu">Explore menu</a></section>
+
+<section class="container section about" id="about">
+<div class="about-card"><span class="eyebrow">ABOUT PIZZA FIRE</span><h2>A local favourite, now one tap away.</h2>
+<p>Pizza Fire serves pure-veg pizzas, combos, burgers, shakes, pasta, snacks and more from Hathi Ghata, Karauli.</p>
+<div class="info"><div><b>10 AM – 10 PM</b><span>Every day</span></div><div><b>7467066077</b><span>Order line</span></div><div><b>Karauli</b><span>Rajasthan</span></div></div></div>
+<div class="map-card"><div class="map-pin">📍</div><h3>Visit us</h3><p>Opposite MRF Showroom, near HP Petrol Pump, Hathi Ghata, Kaila Devi Road, Karauli.</p>
+<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Pizza%20Fire%20Hathi%20Ghata%20Karauli" class="text-link">Get directions →</a></div>
+</section>
+
+
+</main>
+
+<footer><div class="container footer"><span class="brand">🍕 Pizza <b>Fire</b></span><span>© <span id="year"></span> Pizza Fire</span><a href="tel:7467066077">Call 7467066077</a></div></footer>
+
+<div class="backdrop" id="cartBackdrop"></div><aside class="drawer" id="cartDrawer">
+<div class="drawer-head"><div><span class="eyebrow">YOUR ORDER</span><h3>Cart</h3></div><button class="close" id="closeCart">×</button></div>
+<div id="cartItems" class="cart-items"></div><div class="summary"><div><span>Subtotal</span><b id="subtotal">₹0</b></div><div><span>Delivery</span><b>FREE</b></div><div class="grand"><span>Total</span><b id="total">₹0</b></div><button class="btn primary full" id="checkoutBtn">Proceed to Checkout →</button></div>
+</aside>
+
+<div class="modal-bg" id="itemModal"><div class="modal item-modal"><button class="close modal-x" data-close="itemModal">×</button><div id="itemBody"></div></div></div>
+<div class="modal-bg" id="checkoutModal"><div class="modal checkout"><button class="close modal-x" data-close="checkoutModal">×</button>
+<span class="eyebrow">CHECKOUT</span><h2>Almost there.</h2><p class="muted">Enter your details. Your order will also be prepared for WhatsApp.</p>
+<form id="checkoutForm"><div class="form-grid">
+<label>Name*<input name="name" required maxlength="80"></label><label>Mobile*<input name="phone" required pattern="[0-9]{10}" inputmode="numeric" maxlength="10"></label>
+<label>House / Shop No.<input name="house" maxlength="80"></label><label>Area*<input name="area" required maxlength="100"></label><label>Landmark<input name="landmark" maxlength="100"></label>
+</div>
+<div class="choice-grid"><label class="choice"><input type="radio" name="fulfilment" value="delivery" checked> 🛵 Home Delivery</label><label class="choice"><input type="radio" name="fulfilment" value="pickup"> 🏪 Pickup</label></div>
+<div class="choice-grid"><label class="choice"><input type="radio" name="payment" value="cod" checked> 💵 Cash on Delivery</label><label class="choice"><input type="radio" name="payment" value="upi"> 📲 UPI</label></div>
+<div id="upiNotice" class="notice hidden">UPI selected. Replace <b>UPI_ID_HERE</b> in <code>app.js</code> with the cafe's real business UPI ID before production.</div>
+<label>Order note<textarea name="note" maxlength="250" placeholder="Optional: less spicy, landmark, etc."></textarea></label>
+<button class="btn primary full" type="submit">Place Order ↗</button></form></div></div>
+
+<div class="modal-bg" id="successModal"><div class="modal success"><div class="success-icon">✓</div><span class="eyebrow">ORDER CREATED</span><h2>You're all set! 🎉</h2><p id="successText"></p><div id="successSummary" class="success-box"></div><a id="trackThisOrder" class="btn primary full hidden" href="#my-orders">Track This Order →</a><a id="waLink" class="btn secondary full" target="_blank" rel="noopener">Send order on WhatsApp ↗</a><button class="btn ghost full" data-close="successModal">Done</button></div></div>
+
+<div class="pf-auth-bg" id="pfAuthModal"><div class="pf-auth-card"><button class="pf-auth-close" id="pfAuthClose">×</button><div class="pf-auth-brand">🍕</div><span class="eyebrow">PIZZA FIRE</span><h2 id="pfAuthTitle">Welcome back</h2><p id="pfAuthSubtitle">Login to view your orders and place orders faster.</p><form id="pfAuthForm"><div id="pfRegisterFields" class="hidden"><label>Full Name<input id="pfAuthName" maxlength="80" autocomplete="name"></label><label>Mobile Number<input id="pfAuthPhone" inputmode="numeric" maxlength="10" autocomplete="tel"></label></div><label>Email<input id="pfAuthEmail" type="email" required autocomplete="email"></label><label>Password<input id="pfAuthPassword" type="password" required minlength="6" autocomplete="current-password"></label><button class="btn primary full" type="submit" id="pfAuthSubmit">Login</button></form><button class="pf-auth-switch" id="pfAuthSwitch" type="button">New here? Create an account</button><div id="pfAuthMessage" class="pf-auth-message"></div></div></div>
+<script src="app.js"></script>
+
+</body></html>
