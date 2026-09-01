@@ -605,92 +605,82 @@ textarea {
 
 
 /* =========================================================
-   FINAL MOBILE INTERACTION PATCH
-   Keep account/login in the top bar and preserve touch clicks.
+   FINAL SAFE MOBILE FIX
+   No auth/modal display overrides.
 ========================================================= */
 
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 button,
-a,
-input,
-textarea,
-select {
+a {
+    -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
 }
 
-.topbar,
-.nav {
-    position: relative;
-    z-index: 100;
-}
-
-#accountBtn {
-    position: relative;
-    z-index: 110;
-    pointer-events: auto;
-    touch-action: manipulation;
-}
-
+#accountBtn,
 .my-order-track {
     position: relative;
-    z-index: 5;
+    z-index: 2;
     pointer-events: auto;
     touch-action: manipulation;
-    cursor: pointer;
 }
 
 @media (max-width: 600px) {
     .nav {
-        display: flex !important;
+        position: relative;
+        z-index: 20;
+        min-height: 58px;
+        display: flex;
         align-items: center;
-        flex-wrap: nowrap;
-        overflow: visible;
+        gap: 8px;
     }
 
     .brand {
         flex: 0 0 auto;
     }
 
-    nav {
+    .nav nav {
         flex: 1 1 auto;
         min-width: 0;
+        display: flex;
+        align-items: center;
+        gap: 12px;
         overflow-x: auto;
         overflow-y: hidden;
+        scrollbar-width: none;
+        white-space: nowrap;
+    }
+
+    .nav nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .nav nav a {
+        flex: 0 0 auto;
     }
 
     #accountBtn {
         flex: 0 0 auto;
         white-space: nowrap;
+        min-height: 40px;
     }
 
+    /* Auth stays controlled by app.js */
+    #pfAuthModal:not(.open) {
+        display: none;
+    }
+
+    /* My Orders tracking button remains tappable */
     .my-order-bottom {
         position: relative;
         z-index: 2;
     }
 
     .my-order-track {
-        min-height: 44px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
+        min-height: 42px;
     }
-}
-
-/* Auth modal must sit above every page element on mobile. */
-#pfAuthModal,
-.pf-order-modal {
-    position: fixed;
-    inset: 0;
-    z-index: 99999;
-}
-
-#pfAuthModal.open {
-    display: flex;
-}
-
-/* Never let the modal overlay block its own controls. */
-#pfAuthModal button,
-#pfAuthModal input,
-#pfAuthModal a,
-.pf-order-modal button {
-    pointer-events: auto;
 }
