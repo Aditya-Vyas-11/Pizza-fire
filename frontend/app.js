@@ -1496,6 +1496,14 @@ async function pfLoadMyOrders(){
     }catch(e){console.error("MY ORDERS ERROR:",e);box.innerHTML=`<div class="my-orders-empty"><div>⚠️</div><h3>Couldn't load orders</h3><p>Please check that the Pizza Fire server is running.</p><button class="btn primary" id="retryMyOrders">Try Again</button></div>`;$("#retryMyOrders")?.addEventListener("click",pfLoadMyOrders);}
 }
 function pfStatusLabel(s){return({new:"Order Received",accepted:"Confirmed",preparing:"Preparing",ready:"Ready",out_for_delivery:"Out for Delivery",delivered:"Delivered",rejected:"Rejected"})[s]||"Order Received";}
+function pfEscape(value) {
+    return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
 function pfOrderCard(o){
     let items=[];try{items=Array.isArray(o.items)?o.items:JSON.parse(o.items_json||"[]")}catch(e){}
     const names=items.map(x=>`${x.qty||1}× ${x.name||"Item"}`).join(", ");
